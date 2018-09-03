@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="icon" href="/img/icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- Normalize.css for better cross-browser consistency -->
+  <link rel="preconnect" href="http://localhost:1337">
+  <meta name="theme-color" content="#263238">
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <!-- Main CSS file -->
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <title>Restaurant Info</title>
+</head>
+
+<body class="inside">
+  <!-- Beginning header -->
+  <header>
+    <!-- Beginning nav -->
+    <nav role="navigation" aria-label="breadcrumb">
+      <h1><a href="/">Restaurant Reviews</a></h1>
+      <!-- Beginning breadcrumb -->
+      <ul id="breadcrumb">
+        <li><a href="/">Home</a></li>
+      </ul>
+      <!-- End breadcrumb -->
+    </nav>
+    <!-- End nav -->
+  </header>
+  <!-- End header -->
+
+  <!-- Beginning main -->
+  <main id="maincontent" role="main">
+    <!-- Beginning map -->
+    <section id="map-container" tabindex="0" aria-label="Google Map" aria-hidden="true">
+      <button id="map-button" onclick="showMap()">Show Map</button>
+      <div id="map" role="application" aria-hidden="true"></div>
+    </section>
+    <label id="map-aria-description" class="map-aria-description">Map with restaurants</label>
+    <!-- End map -->
+    <!-- Beginning restaurant -->
+    <section id="restaurant-container">
+      <h2 id="restaurant-name"></h2>
+      <img id="restaurant-img">
+      <p id="restaurant-cuisine"></p>
+      <p id="restaurant-address"></p>
+      <table id="restaurant-hours"></table>
+    </section>
+    <!-- end restaurant -->
+    <!-- Beginning reviews -->
+    <section id="reviews-container">
+      <ul id="reviews-list"></ul>
+    </section>
+    <!-- End reviews -->
+    <section id="form-container">
+      <h3 aria-label="form-title">Add Your Review</h3>
+      <form id="review-form" aria-label="review-form" role="application">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" placeholder="Your name" id="name" class="form-control" data-validation="string" aria-label="name" aria-required="true" required>
+        </div>
+        <div>
+          <label for="rating">Rating:</label>
+          <select name="rating" id="rating" class="form-control" data-validation="number" aria-label="rating">
+            <option value="none" disabled selected aria-label="none">Select Rating</option>
+            <option value="1" aria-label="one">1</option>
+            <option value="2" aria-label="two">2</option>
+            <option value="3" aria-label="three">3</option>
+            <option value="4" aria-label="four">4</option>
+            <option value="5" aria-label="five">5</option>
+          </select>
+        </div>
+        <div>
+          <label for="comment">Your comment</label>
+          <textarea name="comment" id="comment" cols="10" rows="5" placeholder="Insert your review" class="form-control" data-validation="string" aria-label="comment"></textarea>
+          <input type="submit" id="send-review" value="Submit" aria-label="submit-button"/>
+        </div>
+      </form>
+    </section>
+  </main>
+  <!-- End main -->
+
+  <!-- Beginning footer -->
+  <footer id="footer" role="contentinfo">
+    Copyright (c) 2018
+    <a href="/">
+      <strong>Restaurant Reviews</strong>
+    </a>
+    All Rights Reserved.
+  </footer>
+  <!-- End footer -->
+  <!-- Beginning scripts -->
+  <script async defer src="js/idb-min.js"></script>
+  <!-- Service worker registeration -->
+  <script type="application/javascript" charset="utf-8" src="js/register-min.js"></script>
+  <!-- Database helpers -->
+  <script type="application/javascript" charset="utf-8" src="js/dbhelper-min.js"></script>
+  <!-- Lazy load -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.5.2/lazyload.min.js"></script>
+  <!-- Main javascript file -->
+  <script type="application/javascript" charset="utf-8" src="js/restaurant_info-min.js"></script>
+  <!-- Google Maps -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACKCb8g-RxQQP_khFR-p0q_wMias6MwpQ&libraries=places&callback=initMap"></script>
+  <!-- End scripts -->
+</body>
+</html>
